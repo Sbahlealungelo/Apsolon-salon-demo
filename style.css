@@ -1,0 +1,113 @@
+/* Apsolon Tech - Salon Demo - Day 1 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  background: #FFD60A;
+  color: #000;
+  padding: 12px 20px;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+/* HERO */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1000') center/cover;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.hero h1 span { color: #FFD60A; }
+
+.hero p {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.hero a {
+  background: #FFD60A;
+  color: #000;
+  padding: 16px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 18px;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(255,214,10,0.3);
+}
+.hero a:hover {
+  transform: scale(1.05);
+  background: #fff;
+}
+
+/* SERVICES */
+.services {
+  padding: 60px 20px;
+  background: #111;
+  text-align: center;
+}
+.services h2 {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+.services h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #FFD60A;
+  margin: 10px auto;
+}
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-left: 4px solid #FFD60A;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 400px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateX(10px);
+  border-left-width: 8px;
+  background: #222;
+}
+
+/* FOOTER */
+.services::after {
+  content: 'Built by Apsolon Tech • 0812409123';
+  display: block;
+  margin-top: 50px;
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 36px; }
+}
