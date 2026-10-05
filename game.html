@@ -1,1 +1,52 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAYLOR'S BILLIONAIRE GAME 💰</title>
+<style>
+body{margin:0;background:#111;color:white;font-family:Arial;text-align:center}
+.header{background:gold;color:black;padding:15px;font-size:22px;font-weight:bold}
+.money{font-size:50px;color:#2ecc71;margin:20px 0}
+.btn{width:90%;padding:18px;margin:8px;border:none;border-radius:12px;font-size:18px;font-weight:bold;cursor:pointer}
+.tap{background:linear-gradient(gold,orange);color:black;font-size:22px}
+.shop{background:#222;color:white;border:2px solid gold;text-align:left;padding:15px}
+.shop b{color:gold}
+</style>
+</head>
+<body>
+<div class="header">💰 TAYLOR'S BILLIONAIRE GAME 💰</div>
+<div class="money">R<span id="cash">0</span></div>
+<div>R<span id="per">1</span> per tap | R<span id="auto">0</span>/sec auto</div>
+<button class="btn tap" onclick="tap()">💈 CUT HAIR - TAP! ✂️ (+R<span id="tapval">1</span>)</button>
+<div style="margin-top:20px">
+<button class="btn shop" onclick="buy(0)">💈 Better Clippers - R100<br><b>+R2 per tap</b> - Owned: <span id="o0">0</span></button>
+<button class="btn shop" onclick="buy(1)">👨‍🎓 Hire Barber - R500<br><b>+R5/sec auto</b> - Owned: <span id="o1">0</span></button>
+<button class="btn shop" onclick="buy(2)">🏪 Second Shop in Newcastle - R3000<br><b>+R30/sec</b> - Owned: <span id="o2">0</span></button>
+<button class="btn shop" onclick="buy(3)">🏢 Salon Empire - R15000<br><b>+R200/sec</b> - Owned: <span id="o3">0</span></button>
+<button class="btn shop" onclick="buy(4)">💎 Taylor Towers - R100k<br><b>+R2000/sec - WIN!</b> Owned: <span id="o4">0</span></button>
+</div>
+<div id="msg" style="margin:20px;color:gold;font-size:20px;font-weight:bold">Welcome Taylor! Build your empire! 👑</div>
+<script>
+let cash=0, tapVal=1, auto=0;
+let items=[
+{price:100, tap:2, auto:0, owned:0},
+{price:500, tap:0, auto:5, owned:0},
+{price:3000, tap:0, auto:30, owned:0},
+{price:15000, tap:0, auto:200, owned:0},
+{price:100000, tap:0, auto:2000, owned:0},
+];
+function tap(){cash+=tapVal;update();if(cash>100&&cash<110)document.getElementById('msg').innerText="Nice! Now hire a barber! 👨‍🎓";}
+function buy(i){
+if(cash>=items[i].price){
+cash-=items[i].price;items[i].owned++;tapVal+=items[i].tap;auto+=items[i].auto;items[i].price=Math.floor(items[i].price*1.5);
+document.getElementById('o'+i).innerText=items[i].owned;
+document.getElementById('msg').innerText="BOUGHT! 🔥";
+if(i==4){document.getElementById('msg').innerText="🏆 TAYLOR IS A BILLIONAIRE! KING OF NEWCASTLE! 👑";alert("YOU WON! Taylor Towers is yours! 🏆💰");}
+update();
+}else{document.getElementById('msg').innerText="Need R"+items[i].price+"! Keep grinding Taylor! 💪";}}
+function update(){document.getElementById('cash').innerText=cash;document.getElementById('tapval').innerText=tapVal;document.getElementById('per').innerText=tapVal;document.getElementById('auto').innerText=auto;}
+setInterval(()=>{cash+=auto;update();},1000);
+</script>
+</body>
+</html>
